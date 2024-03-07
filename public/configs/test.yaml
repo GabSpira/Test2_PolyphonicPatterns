@@ -1,0 +1,179 @@
+testname: Listening Test
+testId: Listening_Test
+bufferSize: 2048
+stopOnErrors: true
+showButtonPreviousPage: true
+remoteService: service/write.php
+
+## TEST VERSION 1 DATASET 1
+
+
+pages:
+
+    - type: generic
+      id: first_page
+      name: "Welcome and thank you for participating!" 
+      content: >
+              Welcome to this listening test, and thank you for your contribution. <br/>
+              <br/>
+              The test is intended to investigate the perception of rhythmic complexity.<br/>
+              <br/> 
+              <br/>
+
+              Please, take the test in a quiet place, or use your headphones. <br/> <br/>
+              This should take no more than 10 min. <br />
+
+    - type: generic
+      id: second_page
+      name: How the test works
+      content: >
+              You are going to listen to some rhythmic patterns. <br/>
+              For each of them you will be asked to express a rating about the amount of complexity you perceive. <br/> <br/>
+
+              The patterns will have different grades of complexity. <br/> <br/>
+              Here some examples with varying complexity are reported. <br/> <br/> <br/>
+
+              <audio controls><source src='configs/resources/audio/example1.wav' type='audio/mp3'></audio><br/>
+              <audio controls><source src='configs/resources/audio/example2.wav' type='audio/mp3'></audio><br/>
+              <audio controls><source src='configs/resources/audio/example3.wav' type='audio/mp3'></audio><br/>
+              <audio controls><source src='configs/resources/audio/example4.wav' type='audio/mp3'></audio><br/>
+
+
+
+    
+
+      # PAGE 1 OF RATING
+    - type: likert_multi_stimulus
+      id: Rating_page_1
+      name: Rate Rhythm Complexity (1st of 2)
+      content: For each of the following rhythmic patterns, please rate the amount of complexity you perceive. </br><br/>
+      random: True
+      mustRate: True
+      # mustPlayback: ended
+      stimuli:
+          Rhythm_0C: configs/resources/audio/patterns/page_001/0 - constant.wav
+          Rhythm_2C: configs/resources/audio/patterns/page_001/2 - constant.wav
+          Rhythm_3C: configs/resources/audio/patterns/page_001/3 - constant.wav
+          Rhythm_3H: configs/resources/audio/patterns/page_001/3 - human.wav
+          Rhythm_4H: configs/resources/audio/patterns/page_001/4 - human.wav
+          Rhythm_6C: configs/resources/audio/patterns/page_001/6 - constant.wav
+          Rhythm_6H: configs/resources/audio/patterns/page_001/6 - human.wav
+          Rhythm_7C: configs/resources/audio/patterns/page_001/7 - constant.wav
+          Rhythm_8C: configs/resources/audio/patterns/page_001/8 - constant.wav
+          Rhythm_8H: configs/resources/audio/patterns/page_001/8 - human.wav
+          
+          
+          
+      response:
+        - value: Very low
+          label: Very low
+          img: configs/resources/images/star_off.png
+          imgSelected: configs/resources/images/star_on.png
+          imgHigherResponseSelected: configs/resources/images/star_on.png
+        - value: Low 
+          label: Low
+          img: configs/resources/images/star_off.png
+          imgSelected: configs/resources/images/star_on.png
+          imgHigherResponseSelected: configs/resources/images/star_on.png
+        - value: Medium 
+          label: Medium 
+          img: configs/resources/images/star_off.png
+          imgSelected: configs/resources/images/star_on.png
+          imgHigherResponseSelected: configs/resources/images/star_on.png
+        - value: High
+          label: High
+          img: configs/resources/images/star_off.png
+          imgSelected: configs/resources/images/star_on.png
+          imgHigherResponseSelected: configs/resources/images/star_on.png  
+        - value: Very high
+          label: Very high
+          img: configs/resources/images/star_off.png
+          imgSelected: configs/resources/images/star_on.png
+          imgHigherResponseSelected: configs/resources/images/star_on.png  
+
+  
+      # PAGE 2 OF RATINGS
+    - type: likert_multi_stimulus
+      id: Rating_page_2
+      name: Rate Rhythm Complexity (2nd of 2)
+      content: For each of the following rhythmic patterns, please rate the amount of complexity you perceive. </br><br/>
+      random: True
+      mustRate: True
+      # mustPlayback: ended
+      stimuli:
+          Rhythm_0H: configs/resources/audio/patterns/page_002/0 - human.wav
+          Rhythm_1C: configs/resources/audio/patterns/page_002/1 - constant.wav
+          Rhythm_1H: configs/resources/audio/patterns/page_002/1 - human.wav
+          Rhythm_2H: configs/resources/audio/patterns/page_002/2 - human.wav
+          Rhythm_4C: configs/resources/audio/patterns/page_002/4 - constant.wav
+          Rhythm_5C: configs/resources/audio/patterns/page_002/5 - constant.wav
+          Rhythm_5H: configs/resources/audio/patterns/page_002/5 - human.wav
+          Rhythm_7H: configs/resources/audio/patterns/page_002/7 - human.wav
+          Rhythm_9C: configs/resources/audio/patterns/page_002/9 - constant.wav
+          Rhythm_9H: configs/resources/audio/patterns/page_002/9 - human.wav
+          
+           
+      response:
+        - value: Very low
+          label: Very low
+          img: configs/resources/images/star_off.png
+          imgSelected: configs/resources/images/star_on.png
+          imgHigherResponseSelected: configs/resources/images/star_on.png
+        - value: Low 
+          label: Low
+          img: configs/resources/images/star_off.png
+          imgSelected: configs/resources/images/star_on.png
+          imgHigherResponseSelected: configs/resources/images/star_on.png
+        - value: Medium 
+          label: Medium 
+          img: configs/resources/images/star_off.png
+          imgSelected: configs/resources/images/star_on.png
+          imgHigherResponseSelected: configs/resources/images/star_on.png
+        - value: High
+          label: High
+          img: configs/resources/images/star_off.png
+          imgSelected: configs/resources/images/star_on.png
+          imgHigherResponseSelected: configs/resources/images/star_on.png  
+        - value: Very high
+          label: Very high
+          img: configs/resources/images/star_off.png
+          imgSelected: configs/resources/images/star_on.png
+          imgHigherResponseSelected: configs/resources/images/star_on.png  
+
+
+    - type: finish
+      name: Thank you
+      content: Thank you for attending! <br/> <br/> Please insert your personal data to complete the test. <br/> <br/> <br/>
+      popupContent: Your results were sent. Goodbye!
+      showResults: false
+      writeResults: true
+      questionnaire:
+          - type: number
+            label: Age
+            name: age
+            min: 0
+            max: 100
+            default: 30
+          - type: likert
+            name: gender
+            label: Gender
+            response:
+             - value: female
+               label: Female
+             - value: male
+               label: Male
+             - value: other
+               label: Other
+          - type: number 
+            label: Years of formal musical training
+            name: years_training
+            min: 0
+            max: 100
+            default: 5
+          - type: text
+            label: Country
+            name: country
+          - type: long_text
+            label: Feedback
+            name: feedback
+            optional: true

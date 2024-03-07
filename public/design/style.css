@@ -1,0 +1,427 @@
+/*************************************************************************
+         (C) Copyright AudioLabs 2017 
+
+This source code is protected by copyright law and international treaties. This source code is made available to You subject to the terms and conditions of the Software License for the webMUSHRA.js Software. Said terms and conditions have been made available to You prior to Your download of this source code. By downloading this source code You agree to be bound by the above mentionend terms and conditions, which can also be found here: https://www.audiolabs-erlangen.de/resources/webMUSHRA. Any unauthorised use of this source code may result in severe civil and criminal penalties, and will be prosecuted to the maximum extent possible under law. 
+
+**************************************************************************/
+
+@font-face {
+  font-family: contentFont;
+  src: url(../fonts/AgenorNeue-Regular.otf); 
+}
+
+@font-face {
+  font-family: headerFont;
+  src: url(../fonts/Invisible-ExtraBold.otf); 
+}
+
+@font-face {
+  font-family: titleFont;
+  src: url(../fonts/SilkyQueen.otf); 
+}
+
+
+input[type=number]::-webkit-outer-spin-button,
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.ui-slider-track.ui-state-disabled {  
+  opacity: 1.0;
+  -webkit-filter: brightness(1.1) contrast(0.8) brightness(1.1) contrast(0.8) brightness(1.1) contrast(0.8) brightness(1.1) contrast(0.8) brightness(1.1) contrast(0.8)  brightness(1.05);
+  filter:  brightness(1.1) contrast(0.8) brightness(1.1) contrast(0.8) brightness(1.1) contrast(0.8) brightness(1.1) contrast(0.8) brightness(1.1) contrast(0.8)  brightness(1.05);  
+}
+
+.noUi-connect {
+  /* background-color: #7b5928; NOTE Background-color between handles alabs-orange */
+}
+
+body {
+  /* font-family: sans-serif,verdana,Helvetica,Arial; */
+  text-align:center;
+  background-repeat: repeat-x;
+  background-position: 0 5em; 
+  background-color: #000000;
+  
+} 
+
+body.ui-mobile-viewport, div.ui-mobile-viewport {
+	overflow-x: hidden;
+  /* background-color: black; */
+  width:100%;
+}
+
+.ui-mobile .ui-page-active {
+	overflow-x: visible;
+  background-image: linear-gradient(#c2dfe4,#83a2cc);
+  /* font-size: 10px;  */
+}
+
+#page_header {
+  padding:3vmin;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 1.5em;
+  margin-bottom: 1.3em;
+  background-color: #f7fdffa1;
+  color: rgb(0, 13, 81);
+  font-family: headerFont;
+  box-shadow: 0 0 0.8vmin 0.2vmin rgba(50, 43, 141, 0.055),
+              inset 0 0.5vmin 1vmin 0.2vmin rgba(246, 218, 142, 0.116),
+              inset 0 -10px 4vmin 0.1px rgba(22, 8, 148, 0.063);
+}
+
+#page_content{
+  /* background-color: #d5e5eb;  */
+  background-image: linear-gradient(#d5e5eb28 ,#d5e5eb);
+  color: rgb(0, 13, 81);
+  padding:6vmin;
+  padding-left: 15vmin;
+  padding-right: 15vmin;
+  font-family: contentFont;
+  box-shadow: 0 0 0.8vmin 0.2vmin rgba(50, 43, 141, 0.055),
+              inset 0 0.5vmin 1vmin 0.2vmin rgba(246, 218, 142, 0.116),
+              inset 0 -10px 4vmin 0.1px rgba(22, 8, 148, 0.063);
+  text-shadow: 0 0.1vmin 0.1vmin rgba(255, 246, 197, 0.918);
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#page_navigation{
+  /* background-image: linear-gradient(#d5e5eb28 ,#8ca6b0);  */
+  background-color: #b5000000;
+  border: solid #00000000;
+  color: rgb(0, 13, 81);
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 0.1em;
+  margin-bottom: 2.2em;
+  padding: 0;
+  font-family: contentFont;
+}
+
+.ui-body.ui-body-a.ui-corner-all{
+  display: inline-block;
+  align-items: center;
+  justify-content: center;
+}
+
+#container {  
+	position: relative; 
+	top: 0%; 
+	margin-top: 0px; 
+	padding: 0 7%;
+  /* width:200%; */
+}
+
+#page_navigation button{
+  background-color: #f7fdffa1;
+  color: rgb(0, 13, 81);
+  font-family: contentFont;
+  box-shadow: 0 0 0.8vmin 0.2vmin rgba(50, 43, 141, 0.055),
+              inset 0 0.5vmin 1vmin 0.2vmin rgba(246, 218, 142, 0.116),
+              inset 0 -10px 4vmin 0.1px rgba(22, 8, 148, 0.063);
+  text-align: center;
+  
+  
+}
+
+#page_content button{
+  background-color: #3f66aa83;
+  color: rgb(254, 253, 227);
+  font-family: contentFont;
+  box-shadow: 0 0 0.3vmin 0.1vmin rgba(19, 15, 71, 0.347),
+              inset 0 0.5vmin 1vmin 0.2vmin rgba(246, 218, 142, 0.116),
+              inset 0 0 4vmin 0.1px rgba(12, 4, 85, 0.338);
+  border: solid rgb(254, 253, 227) 0.1vmin;
+  border-radius: 3vmin;
+  text-shadow: 0 0 0.5vmin #020434;
+  text-align: center;
+  font-size: 2vmin;
+  
+}
+
+#page_content label {
+  font-size: 2vmin;
+  background-color: #fcf9b400;
+  border: #fcf9b400;
+  color: rgb(0, 13, 81);
+}
+
+
+#ui-corner-top.ui-header.ui-bar-inherit{
+  color: rgb(59, 107, 221);
+}
+
+#page_content audio::-webkit-media-controls-panel {
+  background-color: #5cb0ff23;
+  box-shadow: 0 0 0.8vmin 0.2vmin rgba(50, 43, 141, 0.055),
+              inset 0 0.5vmin 1vmin 0.2vmin rgba(205, 249, 255, 0.534),
+              inset 0 -10px 4vmin 0.1px rgba(22, 8, 148, 0.252);
+  
+}
+
+
+#page_content audio::-moz-media-controls-panel {
+  background-color: #5cb0ff23;
+  box-shadow: 0 0 0.8vmin 0.2vmin rgba(50, 43, 141, 0.055),
+              inset 0 0.5vmin 1vmin 0.2vmin rgba(205, 249, 255, 0.534),
+              inset 0 -10px 4vmin 0.1px rgba(22, 8, 148, 0.252);
+  
+}
+#page_content audio::-ms-media-controls-panel {
+  background-color: #5cb0ff23;
+  box-shadow: 0 0 0.8vmin 0.2vmin rgba(50, 43, 141, 0.055),
+              inset 0 0.5vmin 1vmin 0.2vmin rgba(205, 249, 255, 0.534),
+              inset 0 -10px 4vmin 0.1px rgba(22, 8, 148, 0.252);
+  
+}
+
+
+
+.ui-corner-top.ui-header.ui-bar-inherit{
+  color: rgb(255, 242, 140);
+  font-family: contentFont;
+  background-color: blue;
+  text-shadow: 0 0 1vmin #02003a;
+}
+
+.popupDialog-popup{
+  padding:10vmin;
+}
+
+.ui-corner-all.ui-popup.ui-body-c.ui-overlay-shadow{
+  
+  font-family: contentFont;
+  color: rgb(10, 10, 111);
+  text-shadow: 1px 1px rgb(255, 246, 212);
+}
+
+
+.ui-body.ui-body-a.ui-corner-all table:not(.default_padding){
+  background-color: rgba(70, 137, 244, 0.04);
+  height: 1vmin;
+  border-radius: 5vmin;
+  padding-left: 5vmin;
+  padding-right: 5vmin;
+  margin:0.3vmin;
+  box-shadow: 0 0 0.8vmin 0.2vmin rgba(50, 43, 141, 0.07),
+              inset 0.8vmin 0.5vmin 1vmin 0.2vmin rgba(246, 218, 142, 0.181),
+              inset 0 -10px 4vmin 0.1px rgba(22, 8, 148, 0.084);
+}
+
+
+
+.ui-radio{                      /*behind the stars*/
+  border: #00000000;
+  
+  background-color: #fcf9b400;
+  color: rgb(0, 13, 81);
+  /* width:calc(5%+1vmin); */
+  /* width:20%; */
+
+}
+
+
+
+
+
+.header {
+  position:relative;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-bottom: 2px solid #ead9a3;
+  /* border: 1px solid #faffb3; */
+  color: rgb(254, 233, 175);
+  font-weight: bold;
+  font-size: 1.6em;
+  text-shadow: 0 0 3px rgb(0, 0, 52);
+  
+  margin: 0 auto;
+  padding: 5vmin 0em;
+  text-align: center;
+  font-family: titleFont;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#3C3C3C),to(#111));
+  background-image: -webkit-linear-gradient(#3C3C3C,#111);
+  background-image: -moz-linear-gradient(#3C3C3C,#111);
+  background-image: -ms-linear-gradient(#3C3C3C,#111);
+  background-image: -o-linear-gradient(#3C3C3C,#111);
+  background-image: linear-gradient(#6183b3,#8aa0b7); 
+
+}
+.default_padding {
+  border-collapse: separate;
+  border-spacing: 1.5em 0.1em;
+}
+
+#mushra_items {
+  border-spacing: 0.4em;
+
+}
+
+
+td.logo {
+  padding: 0 0.5em 0 0.5em;
+}
+
+img.logopoli {
+  height:20em;
+  width:20em;
+}
+
+img.logo {
+  height: 2.5em;
+}
+
+table.logo {
+  margin-top: 2.8em;  
+}
+
+
+.center {
+	margin: 0 auto;
+}
+
+td.stopButton {
+  width: 10%;
+  vertical-align: bottom;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  
+}
+
+#sliderLim {
+  width: 5%
+}
+
+#waveTable {
+  width: 100%
+}
+
+#conditionNameScale {
+  width: 12em;
+}
+
+#BS1116conditionNameScale {
+	width:13em;
+}
+
+#buttonStop, .audioControlElement {
+  width: 5.5em !important;
+  margin : 0 auto;
+  display: block;
+  color: red;
+  background-color: blue;
+}
+
+#mainUp {
+  width : 100%;
+}
+
+.ui-tolito-progressbar-outer-a
+{
+  background: #faf9eb;
+
+  border: 1px solid #02003a;
+  font-weight: bold;
+  box-shadow: 0 0 0.8vmin 0.2vmin rgba(50, 43, 141, 0.055),
+              inset 0 0.5vmin 1vmin 0.2vmin rgba(255, 255, 255, 0.116),
+              inset 0 -10px 4vmin 0.1px rgba(22, 8, 148, 0.063);
+}
+
+.ui-tolito-progressbar-active-b
+{ 
+  background: #77acdb;
+
+  color: #a5b8c9;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 0.8vmin 0.2vmin rgba(50, 43, 141, 0.055),
+              inset 0 0.5vmin 1vmin 0.2vmin rgba(205, 249, 255, 0.534),
+              inset 0 -10px 4vmin 0.1px rgba(22, 8, 148, 0.063);
+}
+
+#page_progressbar {
+  /* width: 30em; */
+  width:50%;
+  height: 1em;  
+  margin:2em auto;
+  display: block;
+  justify-items: center;
+  align-items: center;
+}
+
+.fileplayer_progressbar {
+  width: 5em;
+  /* width: calc(1em + 60%); */
+  height: 1em;  
+  margin: 3vmin;
+  
+}
+
+/* grey background of the wavesurfer behind the slider*/
+#slider {
+	z-index:10;
+	cursor: auto;
+}
+
+/* alignment of the "start"button */
+#buttonReference {
+	margin-left:-0.4em !important;
+	margin : 0 auto;
+  
+}
+
+/* justifications of the display of the slider values */ 
+.limits {
+	width:4em !important; 
+	text-align:center !important;
+}
+
+#div_lower_limit {
+	margin-right:1.5em; 
+	margin-bottom:-12px;
+}
+
+#div_upper_limit {
+	margin-left:1.5em; 
+	margin-bottom:-12px;
+}
+
+#main {
+	cursor:auto;
+}
+
+#tdPlayButton {
+	text-align:left;
+}
+
+#tdStopButton {
+	text-align:left
+}
+
+
+.noUi-handle {
+	cursor: auto;
+}
+
+li{
+	text-align:left;
+	width:50%;
+	margin-left:25%;
+}
+
+.left {
+	text-align:left;
+	width:50%;
+	margin-left:25%;
+}
+

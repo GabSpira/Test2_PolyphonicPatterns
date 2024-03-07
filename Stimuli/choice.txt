@@ -1,0 +1,4 @@
+The files which have been included in this folder are the audio synthesis of a specific set of rhythmic pattern 
+which was previously selected with a process involving the computation of the expected polyphonic complexity score 
+and the variance of the velocity in the rhythmic patterns. Refer to the folder "/GMD" for further details, 
+including the code used to implement the selection process and the original dataset.
